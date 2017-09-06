@@ -1,0 +1,47 @@
+{
+  "manifest_version": 2,
+
+  "name": "sogou_weixin_plugin",
+  "description": "比量搜狗微信爬取插件",
+  "version": "1.0",
+
+  "permissions": [
+    "proxy",
+    "tabs",
+    "background",
+    "webNavigation",
+    "alarms",
+    "cookies",
+    "storage",
+    "notifications",
+    "*://es.zy.com/*",
+    "*://*.sogou.com/*",
+    "*://*.so.com/*",
+    "*://mp.weixin.qq.com/*",
+    "*://*.zy.com/*",
+    "*://*.pz.com/*",
+    "*://*/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://weixin.sogou.com/weixin?*"],
+      "js": ["js/jquery-1.9.1.min.js","js/content_scripts.js"]
+    }
+  ],
+  "web_accessible_resources":[
+    "images/*.png",
+    "images/*.jpg",
+    "css/*.css",
+    "js/*.js"
+  ],
+  "background": {
+        "scripts": [
+            "js/jquery-1.9.1.min.js","js/bg.js","js/conf.js"
+        ]
+    },
+  "options_page": "options.html",
+  "browser_action": {
+    "default_icon": "sogou.png",
+    "default_title": "比量搜狗微信爬取插件"
+  }
+}
